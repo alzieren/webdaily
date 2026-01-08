@@ -35,7 +35,7 @@ if (isset($_SESSION['username'])) {
                     <div class="card-body">
                         <div class="text-center mb-3">
                             <i class="bi bi-person-circle h1 display-4"></i>
-                            <p>web daily</p>
+                            <p>web daidaily</p>
                             <hr />
                         </div>
                         <form action="" method="post" id="loginForm">
