@@ -2,9 +2,10 @@
 		<div class="row mb-2">
         <div class="col-md-6">
         <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTambah">
-<i class="bi bi-plus-lg"></i> Tambah Article
+<button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalTambah">
+    <i class="bi bi-plus-lg"></i> Tambah Article
 </button>
+
         </div>
         <div class="col-md-6">
             						<div class="input-group">
