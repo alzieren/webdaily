@@ -57,7 +57,7 @@ include "koneksi.php";
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="login.php" target="_blank">Login</a>
+            <a class="nav-link fw-medium" href="login.php" target="_blank" style="font-family: 'Poppins', sans-serif; color: #6B4F29;">Login</a>
           </li>
         </ul>
 
@@ -194,41 +194,31 @@ include "koneksi.php";
 
             <div id="carouselExample" class="carousel slide">
               <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="img/png.png" class="img-fluid mx-auto d-block" alt="Logo" style="max-width: 60%; height: auto;">
-                  <div class="carousel-caption d-none d-md-block">
-                    <p style="font-family: 'Poppins', sans-serif; color: #6B4F29;">Daily Gallery</p>
-                  </div>
-                </div>
-                
-                <div class="carousel-item">
-                  <img src="img/1.jpg" class="img-fluid mx-auto d-block" alt="1" style="max-width: 60%; height: auto;">
-                </div>
-                
-                <div class="carousel-item">
-                  <img src="img/2.jpg" class="img-fluid mx-auto d-block" alt="2" style="max-width: 60%; height: auto;">
-                </div>
+<?php
+$sql = "SELECT * FROM gallery ORDER BY tanggal DESC";
+$hasil = $conn->query($sql);
+$active = true;
 
-                <div class="carousel-item">
-                  <img src="img/3.jpg" class="img-fluid mx-auto d-block" alt="3" style="max-width: 60%; height: auto;">
-                </div>
+while ($row = $hasil->fetch_assoc()) {
+?>
+    <div class="carousel-item <?= $active ? 'active' : '' ?>">
+        <img src="img/<?= $row['gambar'] ?>" 
+             class="img-fluid mx-auto d-block"
+             style="max-width: 60%; height: auto;"
+             alt="Gallery">
+             
+        <?php if (!empty($row['deskripsi'])) { ?>
+        <div class="carousel-caption d-none d-md-block">
+            <p><?= $row['deskripsi'] ?></p>
+        </div>
+        <?php } ?>
+    </div>
+<?php
+    $active = false;
+}
+?>
+</div>
 
-                <div class="carousel-item">
-                  <img src="img/4.jpg" class="img-fluid mx-auto d-block" alt="4" style="max-width: 60%; height: auto;">
-                </div>
-
-                <div class="carousel-item">
-                  <img src="img/5.jpg" class="img-fluid mx-auto d-block" alt="5" style="max-width: 60%; height: auto;">
-                </div>
-
-                <div class="carousel-item">
-                  <img src="img/6.jpg" class="img-fluid mx-auto d-block" alt="4" style="max-width: 60%; height: auto;">
-                </div>
-
-                <div class="carousel-item">
-                  <img src="img/7.jpg" class="img-fluid mx-auto d-block" alt="4" style="max-width: 60%; height: auto;">
-                </div>
-              </div>
               
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
